@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import { Linkedin, Instagram, Mail } from "lucide-react";
 
 const socials = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Mail, href: "mailto:ecellmeswcoe@vercel.com", label: "Email" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/meswcoe-e-cell/?viewAsMember=true", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/meswcoe_e_cell/", label: "Instagram" },
+  { icon: Mail, href: "mailto:e.cell@mescoepune.org", label: "Email" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="relative py-16 px-4 border-t" style={{ borderColor: "hsl(186 100% 50% / 0.1)" }}>
+    <footer className="relative py-12 sm:py-16 px-4 border-t" style={{ borderColor: "hsl(186 100% 50% / 0.1)" }}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Social icons */}
-        <div className="flex justify-center gap-6 mb-8">
+        <div className="flex justify-center gap-5 sm:gap-6 mb-6 sm:mb-8">
           {socials.map((s, i) => (
             <motion.a
               key={s.label}
@@ -32,11 +32,11 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              title={s.label}
             >
               <s.icon size={20} />
-              {/* Glow ripple */}
               <span
-                className="absolute inset-0 rounded-full animate-pulse-glow pointer-events-none"
+                className="absolute inset-0 rounded-full animate-pulse pointer-events-none"
                 style={{
                   boxShadow: "0 0 15px hsl(186 100% 50% / 0.15)",
                 }}
@@ -47,7 +47,7 @@ const Footer = () => {
 
         {/* Tagline */}
         <motion.p
-          className="font-sub text-sm tracking-widest text-foreground/40 uppercase"
+          className="font-sub text-xs sm:text-sm tracking-widest text-foreground/40 uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

@@ -8,15 +8,15 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`HyperTechPortal - Feature Request from ${form.name}`);
-    const body = encodeURIComponent(form.message);
-    window.open(`mailto:ecellmeswcoe@vercel.com?subject=${subject}&body=${body}`);
+    const body = encodeURIComponent(`From: ${form.name} (${form.email})\n\n${form.message}`);
+    window.open(`mailto:e.cell@mescoepune.org?subject=${subject}&body=${body}`);
   };
 
   return (
-    <section className="relative py-24 px-4 overflow-hidden" id="contact">
+    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="contact">
       <div className="max-w-xl mx-auto">
         <motion.h2
-          className="font-display text-3xl font-bold text-center neon-text-magenta mb-10"
+          className="font-display text-2xl sm:text-3xl font-bold text-center neon-text-magenta mb-8 sm:mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -26,7 +26,7 @@ const ContactSection = () => {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="neon-card space-y-5"
+          className="neon-card space-y-4 sm:space-y-5"
           style={{
             borderColor: "hsl(300 100% 50% / 0.3)",
             boxShadow: "0 0 25px hsl(300 100% 50% / 0.08)",
@@ -43,7 +43,7 @@ const ContactSection = () => {
               required
               value={form[field]}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-              className="w-full rounded-lg border bg-transparent px-4 py-3 font-body text-sm text-foreground placeholder:text-foreground/30 outline-none focus:neon-border-magenta transition-all"
+              className="w-full rounded-lg border bg-transparent px-4 py-3 font-body text-sm text-foreground placeholder:text-foreground/30 outline-none transition-all focus:border-secondary focus:shadow-[0_0_10px_hsl(300_100%_50%/0.2)]"
               style={{ borderColor: "hsl(0 0% 15%)" }}
             />
           ))}
@@ -53,7 +53,7 @@ const ContactSection = () => {
             rows={4}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="w-full rounded-lg border bg-transparent px-4 py-3 font-body text-sm text-foreground placeholder:text-foreground/30 outline-none resize-none transition-all"
+            className="w-full rounded-lg border bg-transparent px-4 py-3 font-body text-sm text-foreground placeholder:text-foreground/30 outline-none resize-none transition-all focus:border-secondary focus:shadow-[0_0_10px_hsl(300_100%_50%/0.2)]"
             style={{ borderColor: "hsl(0 0% 15%)" }}
           />
           <motion.button

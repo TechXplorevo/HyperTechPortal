@@ -12,10 +12,10 @@ const tools = [
 
 const AiToolsSection = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden" id="ai-tools">
+    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="ai-tools">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
-          className="font-display text-3xl md:text-4xl font-bold neon-text-purple mb-4"
+          className="font-display text-2xl sm:text-3xl md:text-4xl font-bold neon-text-purple mb-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -23,7 +23,7 @@ const AiToolsSection = () => {
           AI Tools for Founders
         </motion.h2>
         <motion.p
-          className="font-body text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed"
+          className="font-body text-sm sm:text-base text-foreground/60 max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed px-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -34,7 +34,7 @@ const AiToolsSection = () => {
           your back.
         </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {tools.map((tool, i) => (
             <motion.div
               key={tool.label}
@@ -55,13 +55,13 @@ const AiToolsSection = () => {
             >
               <tool.icon
                 className="mx-auto mb-3 transition-all duration-300"
-                size={32}
+                size={28}
                 style={{ color: "hsl(270 100% 50%)" }}
               />
-              <h3 className="font-display text-sm font-bold neon-text-purple mb-1">
+              <h3 className="font-display text-xs sm:text-sm font-bold neon-text-purple mb-1">
                 {tool.label}
               </h3>
-              <p className="font-body text-xs text-foreground/50">{tool.desc}</p>
+              <p className="font-body text-[10px] sm:text-xs text-foreground/50">{tool.desc}</p>
             </motion.div>
           ))}
         </div>

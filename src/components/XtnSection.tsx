@@ -3,10 +3,10 @@ import xtnLogo from "@/assets/xtn-logo.png";
 
 const XtnSection = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden" id="xtn">
+    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="xtn">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          className="neon-card neon-border-magenta flex flex-col md:flex-row-reverse items-center gap-8"
+          className="neon-card neon-border-magenta flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-8"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -28,24 +28,26 @@ const XtnSection = () => {
             <img
               src={xtnLogo}
               alt="XTN Logo"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-contain"
+              className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-xl object-contain"
               style={{
                 filter: "drop-shadow(0 0 20px hsl(300 100% 50% / 0.3))",
               }}
             />
-            {/* Orbiting ring */}
             <div
-              className="absolute inset-0 rounded-full border border-dashed animate-pulse-glow pointer-events-none"
+              className="absolute inset-0 rounded-full border border-dashed animate-pulse pointer-events-none"
               style={{ borderColor: "hsl(300 100% 50% / 0.3)" }}
             />
           </motion.div>
 
           {/* Content */}
           <div className="flex-1 text-center md:text-right">
-            <h2 className="font-display text-2xl md:text-3xl font-bold neon-text-magenta mb-4">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold neon-text-magenta mb-4">
               XTN – Xplorevo Tech Network
             </h2>
-            <p className="font-body text-foreground/60 mb-6 leading-relaxed">
+            <p className="font-sub text-sm sm:text-base text-foreground/50 mb-3 tracking-wide">
+              Student-driven Projects · Tech Solutions · Digital Innovation
+            </p>
+            <p className="font-body text-sm sm:text-base text-foreground/60 mb-6 leading-relaxed">
               XTN is your launchpad for student-driven innovation. From digital
               solutions to tech projects, we make ideas real. Explore XTN and
               power your future!

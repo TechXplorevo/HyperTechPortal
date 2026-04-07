@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Loader from "@/components/Loader";
 import ParticleField from "@/components/ParticleField";
 import MusicToggle from "@/components/MusicToggle";
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import EcellSection from "@/components/EcellSection";
 import XtnSection from "@/components/XtnSection";
@@ -31,6 +32,7 @@ const Index = () => {
           transition={{ duration: 0.6 }}
         >
           <ParticleField />
+          <Navbar />
           <MusicToggle />
           <HeroSection />
           <EcellSection />
