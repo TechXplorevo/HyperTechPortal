@@ -23,7 +23,7 @@ const cards = [
     title: "Get Featured",
     desc: "Showcase your startup to thousands. Submit your story and get the spotlight.",
     btn: "Get Featured →",
-    href: "#contact",
+    href: "https://chat.whatsapp.com/B9khcm1zUf6DcK8C2GKFur",
     color: "purple",
   },
 ];
@@ -36,10 +36,10 @@ const colorMap: Record<string, string> = {
 
 const BlogsSection = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden" id="blogs">
+    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="blogs">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="font-display text-3xl md:text-4xl font-bold text-center neon-text-cyan mb-4"
+          className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-center neon-text-cyan mb-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -47,7 +47,7 @@ const BlogsSection = () => {
           Startup Radar & Blogs
         </motion.h2>
         <motion.p
-          className="font-body text-foreground/60 text-center max-w-2xl mx-auto mb-14"
+          className="font-body text-sm sm:text-base text-foreground/60 text-center max-w-2xl mx-auto mb-10 sm:mb-14 px-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -58,7 +58,7 @@ const BlogsSection = () => {
           fingertips!
         </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
@@ -83,7 +83,7 @@ const BlogsSection = () => {
                 style={{ color: `hsl(${colorMap[card.color]})` }}
               />
               <h3
-                className="font-display text-lg font-bold mb-3"
+                className="font-display text-base sm:text-lg font-bold mb-3"
                 style={{
                   color: `hsl(${colorMap[card.color]})`,
                   textShadow: `0 0 10px hsl(${colorMap[card.color]} / 0.4)`,
@@ -91,13 +91,13 @@ const BlogsSection = () => {
               >
                 {card.title}
               </h3>
-              <p className="font-body text-foreground/50 text-sm mb-6 leading-relaxed">
+              <p className="font-body text-foreground/50 text-xs sm:text-sm mb-6 leading-relaxed">
                 {card.desc}
               </p>
               <a
                 href={card.href}
-                target={card.href.startsWith("http") ? "_blank" : undefined}
-                rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="neon-btn inline-block text-xs"
                 style={{
                   borderColor: `hsl(${colorMap[card.color]} / 0.5)`,
