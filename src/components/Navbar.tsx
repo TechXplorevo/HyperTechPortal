@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import startupRadarLogo from "@/assets/startup-radar-logo.png";
 
 const navItems = [
   { label: "Home", href: "#hero" },
@@ -30,30 +31,32 @@ const Navbar = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "py-2 backdrop-blur-xl"
-          : "py-4"
+        scrolled ? "py-1.5 backdrop-blur-xl" : "py-3"
       }`}
       style={{
-        background: scrolled
-          ? "hsl(0 0% 4% / 0.85)"
-          : "transparent",
-        borderBottom: scrolled
-          ? "1px solid hsl(186 100% 50% / 0.1)"
-          : "none",
+        background: scrolled ? "hsl(0 0% 4% / 0.85)" : "transparent",
+        borderBottom: scrolled ? "1px solid hsl(186 100% 50% / 0.1)" : "none",
       }}
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo + Brand */}
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); handleClick("#hero"); }}
-          className="font-display text-lg font-bold neon-text-cyan tracking-wider"
+          className="flex items-center gap-2.5"
         >
-          HTP
+          <img
+            src={startupRadarLogo}
+            alt="Startup Radar India"
+            className="h-8 sm:h-9 w-auto object-contain rounded"
+            style={{ filter: "drop-shadow(0 0 8px hsl(186 100% 50% / 0.3))" }}
+          />
+          <span className="font-display text-sm sm:text-lg font-bold neon-text-cyan tracking-wider hidden sm:inline">
+            HTP
+          </span>
         </a>
 
         {/* Desktop links */}
