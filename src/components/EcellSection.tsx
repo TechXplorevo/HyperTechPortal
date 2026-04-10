@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
 import ecellLogo from "@/assets/ecell-logo.png";
+import ParallaxSection from "./ParallaxSection";
 
 const socials = [
   {
@@ -22,7 +23,7 @@ const socials = [
 
 const EcellSection = () => {
   return (
-    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="ecell">
+    <ParallaxSection className="py-20 sm:py-24 px-4" id="ecell" speed={0.2}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="neon-card flex flex-col md:flex-row items-center gap-6 sm:gap-8"
@@ -43,6 +44,7 @@ const EcellSection = () => {
               src={ecellLogo}
               alt="E-Cell MESWCOE Logo"
               className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-xl object-contain"
+              loading="lazy"
               style={{
                 filter: "drop-shadow(0 0 20px hsl(186 100% 50% / 0.3))",
               }}
@@ -73,7 +75,7 @@ const EcellSection = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full border transition-all duration-300"
+                  className="p-2.5 rounded-full border transition-all duration-300 neon-ripple"
                   style={{
                     borderColor: "hsl(186 100% 50% / 0.3)",
                     color: "hsl(186 100% 50%)",
@@ -89,12 +91,11 @@ const EcellSection = () => {
               ))}
             </div>
 
-            {/* WhatsApp community button */}
             <a
               href="https://chat.whatsapp.com/B9khcm1zUf6DcK8C2GKFur"
               target="_blank"
               rel="noopener noreferrer"
-              className="neon-btn inline-flex items-center gap-2"
+              className="neon-btn inline-flex items-center gap-2 neon-ripple"
             >
               <MessageCircle size={16} />
               Join Community →
@@ -102,7 +103,7 @@ const EcellSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 };
 

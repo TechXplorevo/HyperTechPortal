@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import TypeWriter from "./TypeWriter";
+import { useTechBoom } from "@/hooks/useTechBoom";
+import { useParticleBurst } from "@/hooks/useParticleBurst";
 
 const HeroSection = () => {
+  const boom = useTechBoom();
+  const burst = useParticleBurst();
+
+  const handleHeroBtnClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    boom(e);
+    burst(e);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
       {/* Grid overlay */}
@@ -75,7 +85,8 @@ const HeroSection = () => {
             href="https://youraibuddies.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="neon-btn text-center"
+            className="neon-btn text-center neon-ripple"
+            onClick={handleHeroBtnClick}
           >
             Explore AI Tools →
           </a>
@@ -83,7 +94,8 @@ const HeroSection = () => {
             href="https://chat.whatsapp.com/B9khcm1zUf6DcK8C2GKFur"
             target="_blank"
             rel="noopener noreferrer"
-            className="neon-btn neon-btn-magenta text-center"
+            className="neon-btn neon-btn-magenta text-center neon-ripple"
+            onClick={handleHeroBtnClick}
           >
             Get Featured →
           </a>

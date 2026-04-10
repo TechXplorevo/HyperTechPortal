@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send } from "lucide-react";
+import ParallaxSection from "./ParallaxSection";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,7 +14,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="contact">
+    <ParallaxSection className="py-20 sm:py-24 px-4" id="contact" speed={0.1}>
       <div className="max-w-xl mx-auto">
         <motion.h2
           className="font-display text-2xl sm:text-3xl font-bold text-center neon-text-magenta mb-8 sm:mb-10"
@@ -58,7 +59,7 @@ const ContactSection = () => {
           />
           <motion.button
             type="submit"
-            className="neon-btn neon-btn-magenta w-full flex items-center justify-center gap-2"
+            className="neon-btn neon-btn-magenta w-full flex items-center justify-center gap-2 neon-ripple"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -66,7 +67,7 @@ const ContactSection = () => {
           </motion.button>
         </motion.form>
       </div>
-    </section>
+    </ParallaxSection>
   );
 };
 

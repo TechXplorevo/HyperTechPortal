@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import xtnLogo from "@/assets/xtn-logo.png";
+import ParallaxSection from "./ParallaxSection";
 
 const XtnSection = () => {
   return (
-    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="xtn">
+    <ParallaxSection className="py-20 sm:py-24 px-4" id="xtn" speed={0.18}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="neon-card neon-border-magenta flex flex-col md:flex-row-reverse items-center gap-6 sm:gap-8"
@@ -29,6 +30,7 @@ const XtnSection = () => {
               src={xtnLogo}
               alt="XTN Logo"
               className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-xl object-contain"
+              loading="lazy"
               style={{
                 filter: "drop-shadow(0 0 20px hsl(300 100% 50% / 0.3))",
               }}
@@ -56,14 +58,14 @@ const XtnSection = () => {
               href="https://xplorevo.tech"
               target="_blank"
               rel="noopener noreferrer"
-              className="neon-btn neon-btn-magenta inline-block"
+              className="neon-btn neon-btn-magenta inline-block neon-ripple"
             >
               Explore XTN →
             </a>
           </div>
         </motion.div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 };
 
