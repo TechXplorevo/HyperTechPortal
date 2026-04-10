@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Brain, Zap, Rocket, Lightbulb, Target, TrendingUp } from "lucide-react";
+import ParallaxSection from "./ParallaxSection";
+import { useParticleBurst } from "@/hooks/useParticleBurst";
 
 const tools = [
   { icon: Brain, label: "Ideation", desc: "AI-powered brainstorming" },
@@ -11,8 +13,10 @@ const tools = [
 ];
 
 const AiToolsSection = () => {
+  const burst = useParticleBurst();
+
   return (
-    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="ai-tools">
+    <ParallaxSection className="py-20 sm:py-24 px-4" id="ai-tools" speed={0.15}>
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           className="font-display text-2xl sm:text-3xl md:text-4xl font-bold neon-text-purple mb-4"
@@ -38,7 +42,7 @@ const AiToolsSection = () => {
           {tools.map((tool, i) => (
             <motion.div
               key={tool.label}
-              className="neon-card neon-border-purple group cursor-pointer"
+              className="neon-card neon-border-purple group cursor-pointer neon-ripple"
               style={{
                 borderColor: "hsl(270 100% 50% / 0.2)",
                 boxShadow: "0 0 15px hsl(270 100% 50% / 0.05)",
@@ -52,6 +56,7 @@ const AiToolsSection = () => {
                 borderColor: "hsl(270 100% 50% / 0.6)",
                 boxShadow: "0 0 40px hsl(270 100% 50% / 0.2)",
               }}
+              onMouseEnter={(e) => burst(e as unknown as React.MouseEvent)}
             >
               <tool.icon
                 className="mx-auto mb-3 transition-all duration-300"
@@ -78,7 +83,7 @@ const AiToolsSection = () => {
           href="https://youraibuddies.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="neon-btn inline-block"
+          className="neon-btn inline-block neon-ripple"
           style={{
             borderColor: "hsl(270 100% 50% / 0.6)",
             color: "hsl(270 100% 50%)",
@@ -92,7 +97,7 @@ const AiToolsSection = () => {
           Explore AI Tools →
         </motion.a>
       </div>
-    </section>
+    </ParallaxSection>
   );
 };
 

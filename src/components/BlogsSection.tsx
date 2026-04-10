@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Newspaper, Award, Rocket } from "lucide-react";
+import ParallaxSection from "./ParallaxSection";
 
 const cards = [
   {
@@ -36,7 +37,7 @@ const colorMap: Record<string, string> = {
 
 const BlogsSection = () => {
   return (
-    <section className="relative py-20 sm:py-24 px-4 overflow-hidden" id="blogs">
+    <ParallaxSection className="py-20 sm:py-24 px-4" id="blogs" speed={0.12}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-center neon-text-cyan mb-4"
@@ -62,7 +63,7 @@ const BlogsSection = () => {
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              className="neon-card text-center"
+              className="neon-card text-center neon-ripple"
               style={{
                 borderColor: `hsl(${colorMap[card.color]} / 0.3)`,
                 boxShadow: `0 0 20px hsl(${colorMap[card.color]} / 0.08)`,
@@ -98,7 +99,7 @@ const BlogsSection = () => {
                 href={card.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="neon-btn inline-block text-xs"
+                className="neon-btn inline-block text-xs neon-ripple"
                 style={{
                   borderColor: `hsl(${colorMap[card.color]} / 0.5)`,
                   color: `hsl(${colorMap[card.color]})`,
@@ -113,7 +114,7 @@ const BlogsSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 };
 
