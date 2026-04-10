@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Mail } from "lucide-react";
+import xplorevoLogo from "@/assets/xplorevo-logo.jpg";
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/meswcoe-e-cell/?viewAsMember=true", label: "LinkedIn" },
@@ -11,6 +12,23 @@ const Footer = () => {
   return (
     <footer className="relative py-12 sm:py-16 px-4 border-t" style={{ borderColor: "hsl(186 100% 50% / 0.1)" }}>
       <div className="max-w-4xl mx-auto text-center">
+        {/* Xplorevo Logo */}
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <a href="https://xplorevo.tech" target="_blank" rel="noopener noreferrer">
+            <img
+              src={xplorevoLogo}
+              alt="Xplorevo"
+              className="h-14 sm:h-16 w-auto rounded-xl object-contain"
+              style={{ filter: "drop-shadow(0 0 15px hsl(300 100% 50% / 0.3))" }}
+            />
+          </a>
+        </motion.div>
+
         {/* Social icons */}
         <div className="flex justify-center gap-5 sm:gap-6 mb-6 sm:mb-8">
           {socials.map((s, i) => (
@@ -35,12 +53,6 @@ const Footer = () => {
               title={s.label}
             >
               <s.icon size={20} />
-              <span
-                className="absolute inset-0 rounded-full animate-pulse pointer-events-none"
-                style={{
-                  boxShadow: "0 0 15px hsl(186 100% 50% / 0.15)",
-                }}
-              />
             </motion.a>
           ))}
         </div>
